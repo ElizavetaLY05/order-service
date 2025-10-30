@@ -9,3 +9,5 @@
 3. Запустите сервис: `go run main.go`
 4. Отправьте заказ: `go run publish.go`
 5. Откройте: http://localhost:8080
+
+Демонстрация работы сервиса: https://disk.yandex.ru/i/WPhZEcpE-3H2Ew
