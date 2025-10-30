@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: orderuser
+      POSTGRES_PASSWORD: orderpass
+      POSTGRES_DB: orderdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_:/var/lib/postgresql/data
+
+  nats-streaming:
+    image: nats-streaming:0.25.5
+    command: "-p 4222 -m 8222 --store file --dir /datastore --cluster_id test-cluster"
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    volumes:
+      - nats_:/datastore
+
+volumes:
+  postgres_:
+  nats_:
